@@ -1,0 +1,25 @@
+name: 备份至Dropbox
+
+on: push
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: 打包并上传至Dropbox
+      run: |
+        sudo apt-get update && sudo apt-get install -y zip curl jq
+        UTC_TS=$(date --utc +'%Y%m%d%H%M%S')
+        LOCAL_TS=$(date -d "$UTC_TS UTC" -d '+8 hours' +'%Y%m%d%H%M%S')
+        ARCHIVE_NAME="$LOCAL_TS.zip"
+        zip -r $ARCHIVE_NAME .
+        UPLOAD_PATH="/backups/$ARCHIVE_NAME"
+        API_ARG="{\"path\": \"$UPLOAD_PATH\",\"mode\": \"add\",\"autorename\": true,\"mute\": false,\"strict_conflict\": false}"
+        curl -X POST https://content.dropboxapi.com/2/files/upload \
+          --header "Authorization: Bearer ${{ secrets.TOKEN }}" \
+          --header "Dropbox-API-Arg: $API_ARG" \
+          --header "Content-Type: application/octet-stream" \
+          --data-binary @$ARCHIVE_NAME
