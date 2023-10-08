@@ -14,7 +14,7 @@
 2. Copy and paste the following YAML content:
 
 ```
-yamlCopy codename: Backup to Dropbox
+name: 备份至Dropbox
 
 on: push
 
@@ -25,7 +25,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Package and Upload to Dropbox
+    - name: 打包并上传至Dropbox
       run: |
         sudo apt-get update && sudo apt-get install -y zip curl jq
         UTC_TS=$(date --utc +'%Y%m%d%H%M%S')
