@@ -13,8 +13,8 @@ jobs:
       run: |
         sudo apt-get update && sudo apt-get install -y zip curl jq
         UTC_TS=$(date --utc +'%Y%m%d%H%M%S')
-        LOCAL_TS=$(date -d "$UTC_TS UTC" -d '+8 hours' +'%Y%m%d%H%M%S')
-        ARCHIVE_NAME="$LOCAL_TS.zip"
+        CN_TS=$(date -d "$UTC_TS UTC" -d '+8 hours' +'%Y%m%d%H%M%S')
+        ARCHIVE_NAME="$CN_TS.zip"
         zip -r $ARCHIVE_NAME .
         UPLOAD_PATH="/backups/$ARCHIVE_NAME"
         API_ARG="{\"path\": \"$UPLOAD_PATH\",\"mode\": \"add\",\"autorename\": true,\"mute\": false,\"strict_conflict\": false}"
