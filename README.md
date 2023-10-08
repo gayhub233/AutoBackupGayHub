@@ -1,6 +1,6 @@
 ## 📌 Introduction
 
-**AutoBackupGayHub** is a straightforward utility that harnesses **GitHub Actions** to automatically back up your GitHub repositories to **Dropbox**, ensuring that your code is always safe and accessible. Utilizing GitHub Actions, it automatically triggers a backup process each time you push to your repository, packing your repository contents and uploading them to your Dropbox space to safeguard your code against loss.
+**AutoBackupGayHub** is a simple tool that harnesses **GitHub Actions** to automatically back up your GitHub repositories to **Dropbox**, ensuring that your code is always safe and accessible. Utilizing GitHub Actions, it automatically triggers a backup process each time you push to your repository, packing your repository contents and uploading them to your Dropbox space to safeguard your code against loss.
 
 ## 🚀 Key Features
 
