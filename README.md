@@ -55,7 +55,7 @@ There are two methods to acquire a Dropbox Token:
 
 ### Method 1: One-click Acquisition
 
-1. Visit our provided authorization website: [AutoBackupGayHub](https://autobackupgayhub.pages.dev/) (hosted on Cloudflare Page, safe to use).
+1. Visit our provided authorization website: [AutoBackupGayHub](https://autobackup.pages.dev/) (hosted on Cloudflare Page, safe to use).
 
 2. Click to authorize and grant permissions to the AutoBackupGayHub application on the new page.
 
